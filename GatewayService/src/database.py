@@ -6,7 +6,7 @@ import bson
 load_dotenv()
 DATABASE_URL = os.environ.get("DATABASE_URL")
 
-client = MongoClient("18.139.228.165")
+client = MongoClient(DATABASE_URL)
 db = client.kodwang
 
 user_collection = db.user
