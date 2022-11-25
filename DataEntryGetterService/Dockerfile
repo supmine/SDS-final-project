@@ -11,6 +11,6 @@ RUN pip install --upgrade pip
 
 RUN pip install -r requirements.txt
 
-EXPOSE 8000
+EXPOSE 50051
 
 CMD ["python3", "get_data_server.py"]
