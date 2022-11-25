@@ -1,4 +1,4 @@
-FROM python:3.7-buster
+FROM python:3.7
 
 COPY . /GatewayService
 WORKDIR /GatewayService
@@ -13,4 +13,4 @@ RUN pip install -r requirements.txt
 
 EXPOSE 8001
 
-CMD  python -m uvicorn --host=0.0.0.0 --port=8001 src.main:app
+CMD ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8001"]

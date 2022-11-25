@@ -1,4 +1,4 @@
-FROM python:3.7-buster
+FROM python:3.7
 
 COPY . /DatasetManagementService
 WORKDIR /DatasetManagementService
@@ -13,4 +13,4 @@ RUN pip install -r requirements.txt
 
 EXPOSE 8000
 
-CMD  python -m uvicorn --host=0.0.0.0 --port=8000 src.server:app
+CMD ["uvicorn", "src.server:app", "--host", "0.0.0.0", "--port", "8000"]
