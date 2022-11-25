@@ -1,0 +1,8 @@
+certifi @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_0ek9yztvu3/croot/certifi_1665076692562/work/certifi
+dnspython==2.2.1
+grpcio==1.50.0
+grpcio-tools==1.50.0
+protobuf==4.21.9
+pymongo==4.3.3
+python-dotenv==0.21.0
+six==1.16.0
