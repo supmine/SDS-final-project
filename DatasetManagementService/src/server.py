@@ -23,50 +23,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
-
-
-user_router = APIRouter(
-    prefix="/auth", tags=["user"], responses={404: {"descrption": "Not Found"}}
-)
-
-
-@user_router.post("/create")
-async def create_user(request: CreateUserSchema):
-    request = request.__dict__
-    email = request["email"]
-    password = request["password"]
-    request["password"] = get_password_hash(password)
-    request["balance"] = 0
-    user = await find_user_by_email(email)
-    if user:
-        raise HTTPException(status_code=409, detail="Email Already Found")
-    inserted_user = await add_user(request)
-    print(inserted_user)
-    return {"ok": 1}
-
-
-@user_router.post("/login")
-async def login_user(request: LoginUserSchema):
-    request = request.__dict__
-    email = request["email"]
-    plain_password = request["password"]
-    user = await find_user_by_email(email)
-    if user:
-        hashed_password = user["password"]
-        if verify_password(plain_password, hashed_password):
-            return {
-                "token": create_access_token(
-                    {"email": user["email"], "user_id": user["user_id"]}
-                ),
-                "token_type": "BEARER",
-            }
-    raise HTTPException(status_code=400, detail="User or Password incorrect")
-
-
 dataset_router = APIRouter(
     prefix="/dataset", tags=["dataset"], responses={404: {"descrption": "Not Found"}}
 )
@@ -120,6 +76,5 @@ async def annotate(request: AnnotateSchema):
     return entry
 
 
-app.include_router(user_router)
 app.include_router(dataset_router)
 app.include_router(annotate_router)
