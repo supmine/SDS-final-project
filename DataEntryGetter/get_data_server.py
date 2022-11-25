@@ -1,8 +1,8 @@
 from concurrent import futures
 import time
 import grpc
-import compile_protos.get_data_entry_pb2
-import compile_protos.get_data_entry_pb2_grpc
+import get_data_entry_pb2
+import get_data_entry_pb2_grpc
 from pymongo import MongoClient
 import bson
 import random as rnd

@@ -18,6 +18,7 @@ class LoginUserSchema(BaseModel):
 class Entry(BaseModel):
     entry_type: str
     entry: str
+    prelabel: Optional[str]
 
 
 class DatasetSchema(BaseModel):
