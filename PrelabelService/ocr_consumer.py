@@ -6,11 +6,11 @@ import numpy as np
 from utils import decode_jpg_from_string
 from dotenv import load_dotenv
 from models.ocr import OCR
-
 from pymongo import MongoClient
 import bson
 
-load_dotenv
+load_dotenv()
+QUEUE_URL = os.environ.get("QUEUE_URL")
 DATABASE_URL = os.environ.get("DATABASE_URL")
 
 client = MongoClient(DATABASE_URL)
@@ -26,7 +26,7 @@ def main():
     receive image from ocr queue and recognize it
     """
 
-    connection = pika.BlockingConnection(pika.ConnectionParameters(host="localhost"))
+    connection = pika.BlockingConnection(pika.ConnectionParameters(host=QUEUE_URL))
     channel = connection.channel()
 
     channel.queue_declare(queue="ocr")
