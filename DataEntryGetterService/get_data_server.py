@@ -48,7 +48,7 @@ def serve():
     get_data_entry_pb2_grpc.add_DataEntryGetterServicer_to_server(
         GetDataEntryServicer(), server
     )
-    server.add_insecure_port("localhost:50051")
+    server.add_insecure_port("0.0.0.0:50051")
     server.start()
     server.wait_for_termination()
 
