@@ -48,7 +48,39 @@ async def find_unlabel_entry(dataset_id):
 async def root():
     return {"message": "Hello World"}
 
+<<<<<<< HEAD
 @app.get("/get_entry")
 async def get_data(dataset_id):
     entry = await find_unlabel_entry(dataset_id)
     return entry
+=======
+class GetDataEntryServicer(get_data_entry_pb2_grpc.DataEntryGetterServicer):
+    def GetDataEntry(self, request, context):
+        response = get_data_entry_pb2.GetDataEntryResponse()
+        entry = find_unlabel_entry(request.dataset_id)
+        if entry:
+            response.data_type = entry["entry_type"]
+            response.data = entry["entry"]
+            response.entry_id = str(entry["entry_id"])
+            response.reward = entry["reward"]
+            response.prelabel = ""
+            if entry["prelabel"]:
+                response.prelabel = entry["prelabel"]
+        else:
+            raise Exception("ALL ENTRIES IN THIS DATASET WERE LABELED")
+        return response
+
+
+def serve():
+    server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
+    get_data_entry_pb2_grpc.add_DataEntryGetterServicer_to_server(
+        GetDataEntryServicer(), server
+    )
+    server.add_insecure_port("0.0.0.0:50051")
+    server.start()
+    server.wait_for_termination()
+
+
+if __name__ == "__main__":
+    serve()
+>>>>>>> 96c55606d84913c4f951c70ab8f59795790d1475
