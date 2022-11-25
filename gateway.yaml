@@ -14,14 +14,14 @@ spec:
     spec:
       containers:
       - name: gateway-service
-        image: supanart2010/gateway-service:latest
+        image: supanart2010/gateway-service:v2.0
         ports:
         - containerPort: 8001
         env:
         - name: REST_URL
           value: http://dataset-mgmt-service:8000
         - name: GRPC_URL
-          value: data-entry-getter-service:50051
+          value: http://dataset-mgmt-service:8000
         - name: RABBITMQ_URL
           value: rabbitmq-amqp-service
         - name: DATABASE_URL
