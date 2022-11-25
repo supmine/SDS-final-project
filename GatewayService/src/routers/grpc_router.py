@@ -21,8 +21,13 @@ grpc_router = APIRouter(
 @grpc_router.get("/{dataset_id}")
 def request_data_entry(dataset_id: str, user = Depends(validate_token)):
     entry = requests.get(GRPC_URL+"/get_entry", params={"dataset_id": dataset_id})
-    entry = entry.json()
-    entry.pop("reward")
-    if not entry["prelabel"]:
-        entry["prelabel"] = ""
-    return entry
+    if entry:
+        entry = entry.json()
+        entry.pop("reward")
+        if not entry["prelabel"]:
+            entry["prelabel"] = ""
+        return entry
+    else:
+        return {
+            "message": "Something Error"
+        }
