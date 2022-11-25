@@ -2,7 +2,6 @@ import bson
 from fastapi import FastAPI, APIRouter, Request, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from src.schema import CreateUserSchema, LoginUserSchema, DatasetSchema, AnnotateSchema
-from src.utils import get_password_hash, verify_password, create_access_token
 from src.database import (
     find_user_by_email,
     find_user_by_id,
