@@ -25,7 +25,7 @@ spec:
         - name: RABBITMQ_URL
           value: rabbitmq-amqp-service
         - name: DATABASE_URL
-          value: mongodb://18.139.228.165:27017/
+          value: mongodb://mongodb-service:27017/
         - name: OAUTH_SECRET_KEY
           value: 40685ce01419b8e886136d45c37fb061b02a1060e3b5cbec83512234fe617ae3
         - name: OAUTH_ALGORITHM
