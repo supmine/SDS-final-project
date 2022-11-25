@@ -1,7 +1,11 @@
-FROM python:3.7.3-alpine
+FROM python:3.7-buster
 
 COPY . /GatewayService
 WORKDIR /GatewayService
+
+RUN apt-get update
+
+RUN apt-get install -y git
 
 RUN pip install -r requirements.txt
 
