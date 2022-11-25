@@ -6,8 +6,6 @@ from dotenv import load_dotenv
 import os
 from src.schema import RequestEntrySchema
 from src.utils import validate_token
-import compile_protos.get_data_entry_pb2_grpc
-import compile_protos.get_data_entry_pb2
 import time
 import grpc
 
