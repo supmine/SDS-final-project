@@ -11,6 +11,6 @@ RUN pip install --upgrade pip
 
 RUN pip install -r requirements.txt
 
-EXPOSE 50051
+EXPOSE 8002
 
-CMD ["python3", "get_data_server.py"]
+CMD ["uvicorn", "get_data_server:app", "--host", "0.0.0.0", "--port", "8002"]
