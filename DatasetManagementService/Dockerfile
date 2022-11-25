@@ -13,4 +13,4 @@ RUN pip install -r requirements.txt
 
 EXPOSE 8000
 
-CMD  python -m uvicorn --host=0.0.0.0 --port=8000 src.main:app
+CMD  python -m uvicorn --host=0.0.0.0 --port=8000 src.server:app
