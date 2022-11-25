@@ -16,7 +16,7 @@ spec:
       - name: data-entry-getter-service
         image: supanart2010/data-entry-getter-service:latest
         ports:
-        - containerPort: 50051
+        - containerPort: 8002
         env:
         - name: DATABASE_URL
           value: mongodb://mongodb-service:27017/
@@ -27,8 +27,8 @@ metadata:
   name: data-entry-getter-service
 spec:
   selector:
-    app: data-entry-getter
+    app: data-entry-getter-service
   ports:
     - protocol: TCP
-      port: 50051
-      targetPort: 50051
+      port: 8002
+      targetPort: 8002

@@ -21,7 +21,7 @@ spec:
         - name: REST_URL
           value: http://dataset-mgmt-service:8000
         - name: GRPC_URL
-          value: http://dataset-mgmt-service:8000
+          value: http://data-entry-getter-service:8002
         - name: RABBITMQ_URL
           value: rabbitmq-amqp-service
         - name: DATABASE_URL
