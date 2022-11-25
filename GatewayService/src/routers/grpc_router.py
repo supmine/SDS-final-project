@@ -29,5 +29,5 @@ def request_data_entry(dataset_id: str, user = Depends(validate_token)):
         return entry
     else:
         return {
-            "message": "Something Error"
+            "message": "No more data entry !"
         }
