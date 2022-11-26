@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: dataset-mgmt-deployment
+  name: dataset-mgmt-service-deployment
 spec:
   selector:
     matchLabels:
-      app: dataset-mgmt
+      app: dataset-mgmt-service
   replicas: 1 
   template:
     metadata:
       labels:
-        app: dataset-mgmt
+        app: dataset-mgmt-service
     spec:
       containers:
-      - name: dataset-mgmt
+      - name: dataset-mgmt-service
         image: supanart2010/dataset-mgmt-service:latest
         ports:
         - containerPort: 8000
@@ -31,7 +31,7 @@ metadata:
   name: dataset-mgmt-service
 spec:
   selector:
-    app: dataset-mgmt
+    app: dataset-mgmt-service
   ports:
     - protocol: TCP
       port: 8000
