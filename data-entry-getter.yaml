@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: data-entry-getter-service-deployment
+  name: data-entry-getter-deployment
 spec:
   selector:
     matchLabels:
-      app: data-entry-getter-service
+      app: data-entry-getter
   replicas: 1 
   template:
     metadata:
       labels:
-        app: data-entry-getter-service
+        app: data-entry-getter
     spec:
       containers:
-      - name: data-entry-getter-service
+      - name: data-entry-getter
         image: supanart2010/data-entry-getter-service:latest
         ports:
         - containerPort: 8002
@@ -27,7 +27,7 @@ metadata:
   name: data-entry-getter-service
 spec:
   selector:
-    app: data-entry-getter-service
+    app: data-entry-getter
   ports:
     - protocol: TCP
       port: 8002

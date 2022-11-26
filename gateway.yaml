@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: gateway-service-deployment
+  name: gateway-deployment
 spec:
   selector:
     matchLabels:
-      app: gateway-service
+      app: gateway
   replicas: 1 
   template:
     metadata:
       labels:
-        app: gateway-service
+        app: gateway
     spec:
       containers:
-      - name: gateway-service
-        image: supanart2010/gateway-service:v2.1
+      - name: gateway
+        image: supanart2010/gateway-service:v3.0
         ports:
         - containerPort: 8001
         env:
@@ -37,7 +37,7 @@ metadata:
   name: gateway-service
 spec:
   selector:
-    app: gateway-service
+    app: gateway
   ports:
   - protocol: TCP
     port: 8001
