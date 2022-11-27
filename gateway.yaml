@@ -36,6 +36,7 @@ kind: Service
 metadata:
   name: gateway-service
 spec:
+  type: LoadBalancer
   selector:
     app: gateway-service
   ports:

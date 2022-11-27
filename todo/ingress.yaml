@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: sds-ingress
 spec:
-  # ingressClassName: nginx
+  ingressClassName: nginx
   rules:
     - host: localhost
       http:
@@ -12,6 +12,6 @@ spec:
             path: "/"
             backend:
               service:
-                name: gateway-service
+                name: todo-service
                 port:
-                  number: 8001
+                  number: 8000

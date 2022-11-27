@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todo-noti-deployment
+  labels:
+    app: todo-noti
+spec:
+  selector:
+    matchLabels:
+      app: todo-noti
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: todo-noti
+    spec:
+      containers:
+        - name: todo-noti
+          image: natawut/todo-service:release-2.1
+          ports:
+            - containerPort: 8000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: todo-noti-service
+spec:
+  selector:
+    app: todo-noti
+  ports:
+  - protocol: TCP
+    port: 8000
+    targetPort: 8000
