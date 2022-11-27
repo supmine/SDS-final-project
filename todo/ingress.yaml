@@ -21,4 +21,4 @@ spec:
               service:
                 name: todo-noti-service
                 port:
-                  number: 8000
+                  number: 9000

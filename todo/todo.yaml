@@ -22,6 +22,8 @@ spec:
           env:
             - name: REDIS_HOST
               value: todo-db-service
+            - name: NOTIFICATION_HOST
+              value: todo-noti-service
 ---
 apiVersion: v1
 kind: Service
