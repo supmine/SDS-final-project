@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: todo-noti
-          image: natawut/todo-notification:release-1.1
+          image: supanart2010/todo-notification-service:latest
           ports:
             - containerPort: 9000
           env:
