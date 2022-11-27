@@ -19,6 +19,10 @@ spec:
           image: natawut/todo-service:release-2.1
           ports:
             - containerPort: 9000
+          env:
+            - name: REDIS_HOST
+              value: todo-db-service
+          
 ---
 apiVersion: v1
 kind: Service
