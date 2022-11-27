@@ -23,12 +23,11 @@ spec:
           env:
             - name: REDIS_HOST
               value: todo-db-service
-          livenessProbe:
-            httpGet:
-              path: /
-              port: 9000
-            initialDelaySeconds: 20
-            periodSeconds: 3
+          resources:
+            requests:
+              memory: 100Mi
+            limits:
+              memory: 200Mi
           
 ---
 apiVersion: v1
