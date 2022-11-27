@@ -16,9 +16,13 @@ spec:
     spec:
       containers:
         - name: todo-noti
-          image: natawut/todo-service:release-2.1
+          image: supanart2010/todo-notification-service:latest
           ports:
-            - containerPort: 8000
+            - containerPort: 9000
+          env:
+            - name: REDIS_HOST
+              value: todo-db-service
+          
 ---
 apiVersion: v1
 kind: Service
@@ -29,5 +33,5 @@ spec:
     app: todo-noti
   ports:
   - protocol: TCP
-    port: 8000
-    targetPort: 8000
+    port: 9000
+    targetPort: 9000
