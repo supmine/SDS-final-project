@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: todo
-          image: natawut/todo-service:release-2.1
+          image: supanart2010/my-todo:v3.1
           ports:
             - containerPort: 8000
           env:
