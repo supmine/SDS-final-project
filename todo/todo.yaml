@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: todo
-          image: supanart2010/my-todo:v3.1
+          image: supanart2010/new-todo:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8000

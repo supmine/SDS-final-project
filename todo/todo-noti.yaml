@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: todo-noti
-          image: supanart2010/todo-notification-service:latest
+          image: supanart2010/new-todo-noti:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 9000
