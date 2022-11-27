@@ -13,6 +13,7 @@ spec:
     metadata:
       labels:
         app: todo-noti
+    spec:
       containers:
         - name: todo-noti
           image: natawut/todo-service:release-2.1
