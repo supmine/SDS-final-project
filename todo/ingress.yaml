@@ -15,10 +15,3 @@ spec:
                 name: todo-service
                 port:
                   number: 8000
-          - pathType: Prefix
-            path: "/noti"
-            backend:
-              service:
-                name: todo-noti-service
-                port:
-                  number: 9000
