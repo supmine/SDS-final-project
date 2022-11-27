@@ -17,11 +17,18 @@ spec:
       containers:
         - name: todo-noti
           image: supanart2010/todo-notification-service:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 9000
           env:
             - name: REDIS_HOST
               value: todo-db-service
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 9000
+            initialDelaySeconds: 20
+            periodSeconds: 3
           
 ---
 apiVersion: v1
