@@ -8,7 +8,7 @@ spec:
   selector:
     matchLabels:
       app: todo-db
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       labels:
@@ -19,6 +19,9 @@ spec:
           image: redis
           ports:
             - containerPort: 6379
+
+      nodeSelector:
+        node.kubernetes.io/microk8s-worker: microk8s-worker
 ---
 apiVersion: v1
 kind: Service

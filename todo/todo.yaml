@@ -31,6 +31,8 @@ spec:
               port: 8000
             initialDelaySeconds: 20
             periodSeconds: 3
+      nodeSelector:
+          node.kubernetes.io/microk8s-worker: microk8s-worker
 ---
 apiVersion: v1
 kind: Service
