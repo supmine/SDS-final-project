@@ -1,17 +1,15 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: sds-ingress
+  name: http-ingress
 spec:
-  ingressClassName: nginx
   rules:
-    - host: localhost
-      http:
+    - http:
         paths:
-          - pathType: Prefix
-            path: "/"
-            backend:
-              service:
-                name: todo-service
-                port:
-                  number: 8000
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: todo-service
+              port:
+                number: 8000
